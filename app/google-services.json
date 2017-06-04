@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "441713251716",
+    "firebase_url": "https://cryptotalk-81ea6.firebaseio.com",
+    "project_id": "cryptotalk-81ea6",
+    "storage_bucket": "cryptotalk-81ea6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441713251716:android:bc5352ab6633a3e2",
+        "android_client_info": {
+          "package_name": "dev.swiraft.cryptotalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441713251716-14mqqslmgi7dcr2heepheu0ogv879ann.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.swiraft.cryptotalk",
+            "certificate_hash": "9c800b5cab51c6c854578ce107a56cd3c43b1c59"
+          }
+        },
+        {
+          "client_id": "441713251716-6824n1ibpmj2fv1l0lp5s621ibgcoc0t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiWZNPJ0t6705WnuUTtmRGAZ9igXAI_Qo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441713251716-6824n1ibpmj2fv1l0lp5s621ibgcoc0t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
