@@ -1,13 +1,19 @@
 <resources>
     <string name="app_name">CryptoTalk</string>
     <string name="title_activity_login">S\'identifier</string>
+    <string name="title_activity_register">S\'enregistrer</string>
 
-    <!-- Strings related to login -->
+    <!-- Strings related to login/register -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Mot de passe</string>
+    <string name="prompt_password_confirm">Confirmer le mot de passe</string>
     <string name="action_sign_in">Se connecter</string>
     <string name="error_invalid_email">L\'adresse mail est invalide</string>
     <string name="error_incorrect_password">Mot de passe trop court</string>
+    <string name="error_notMatches_password">Le mot de passe ne correspond pas</string>
     <string name="error_field_required">This field is required</string>
+    <string name="register_noAccount_label"><u>Je n\'ai pas de compte, m\'enregistrer.</u></string>
+
+
 
 </resources>

@@ -1,10 +1,13 @@
 package dev.swiraft.cryptotalk.ressources;
 
-import android.content.Context;
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.widget.Toast;
 
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -15,6 +18,10 @@ import com.google.firebase.auth.FirebaseUser;
 public abstract class AuthentificationManager {
 
     private final static String  TAG = "Authentifiacation";
+
+    private static boolean isOk = true;
+
+    private static String messageErreur;
 
     private static FirebaseAuth mAuth;
 
@@ -45,7 +52,44 @@ public abstract class AuthentificationManager {
 
     }
 
-    public static void connect(Context context, String eMail, String Mdp) {
-        Toast.makeText(context, "eMail : " + eMail + " Mot de passe " + Mdp , Toast.LENGTH_SHORT).show();
+    public boolean exists(String eMail){
+        return true;
+    }
+
+    public static boolean connect(final String eMail, String Mdp, Activity context) {
+        AuthentificationManager.isOk = true;
+        mAuth.signInWithEmailAndPassword(eMail, Mdp).addOnCompleteListener(context, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(!task.isSuccessful()) {
+                    Log.e(TAG, "Erreur de connexion pour : " + eMail);
+                    messageErreur = task.getException().getMessage();
+                    AuthentificationManager.isOk = false;
+                    return;
+                }
+
+            }
+        });
+        return AuthentificationManager.isOk;
+    }
+
+    public static boolean createUser(final String email, String Mdp, Activity context){
+        AuthentificationManager.isOk = true;
+        mAuth.createUserWithEmailAndPassword(email, Mdp).addOnCompleteListener(context, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(!task.isSuccessful()) {
+                    Log.e(TAG, "Erreur de création de l\'utilisateur : " + email);
+                    messageErreur = task.getException().getMessage();
+                    AuthentificationManager.isOk = false;
+                }
+            }
+        });
+        return AuthentificationManager.isOk;
+    }
+
+    public static String getMessage(){
+        return AuthentificationManager.messageErreur == null ? "" : messageErreur;
     }
 }
